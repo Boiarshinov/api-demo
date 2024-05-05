@@ -1,4 +1,4 @@
-package dev.boiarshinov.standardmethods.endpoints;
+package dev.boiarshinov.api.longrunning.operations;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

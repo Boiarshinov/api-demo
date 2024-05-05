@@ -1,0 +1,31 @@
+### Create job with properties
+POST http://localhost:8080/rerunnable-jobs/job
+Content-Type: application/json
+
+{
+  "properties": {
+    "key1": "value1",
+    "key2": "value2"
+  }
+}
+
+### Get job info
+GET http://localhost:8080/rerunnable-jobs/job/J00000000001
+Accept: application/json
+
+### Delete job
+DELETE http://localhost:8080/rerunnable-jobs/job/J00000000001
+
+
+### Run job
+POST http://localhost:8080/rerunnable-jobs/job/J00000000001/run
+
+### Get operation
+GET http://localhost:8080/rerunnable-jobs/operation/O00000000001
+Accept: application/json
+
+### Get executions
+GET http://localhost:8080/rerunnable-jobs/job/J00000000001/executions
+
+### Get execution
+GET http://localhost:8080/rerunnable-jobs/job/J00000000001/executions/E00000000001

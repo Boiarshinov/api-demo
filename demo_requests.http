@@ -1,0 +1,50 @@
+###
+GET http://localhost:8080/resources/20
+Accept: application/json
+
+###
+POST http://localhost:8080/resources
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "test"
+}
+
+### Проверяем что вернется по несуществующему ресурсу
+GET http://localhost:8080/not-exist
+Accept: application/json
+
+### Проверяем, что вернется по существующему ресурсу, но неподдерживаемому методу
+DELETE http://localhost:8080/resources/20
+Accept: application/json
+
+### Узнаем, что Spring Boot для нас еще и OPTIONS сгенерировал
+OPTIONS http://localhost:8080/resources
+Accept: application/json
+
+###
+OPTIONS http://localhost:8080/resources/20
+Accept: application/json
+
+
+
+
+
+###
+GET http://localhost:8080/resources/20/status
+Accept: application/json
+
+### Проверяем, что вернется по существующему ресурсу, но неподдерживаемому методу
+DELETE http://localhost:8080/resources/20/status
+Accept: application/json
+
+
+
+### Поля через запятую
+GET http://localhost:8080/resources/20?fieldMask=lol,kek
+Accept: application/json
+
+### Каждое поле отдельно
+GET http://localhost:8080/resources/20?fieldMask=lol&fieldMask=kek
+Accept: application/json

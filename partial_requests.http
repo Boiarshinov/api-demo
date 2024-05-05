@@ -1,0 +1,26 @@
+## Частичный запрос ##
+
+### Поля через запятую
+GET http://localhost:8080/partial/20?fieldMask=id,name,address
+Accept: application/json
+
+### Каждое поле отдельно
+GET http://localhost:8080/partial/20?fieldMask=id&fieldMask=name
+Accept: application/json
+
+### Без указания полей
+GET http://localhost:8080/partial/20
+Accept: application/json
+
+
+
+## Частичное обновление ##
+
+### jsonMapper.updateValue()
+PATCH http://localhost:8080/partial/20
+Content-Type: application/json
+#Accept: application/json
+
+{
+  "name": "updatedName"
+}

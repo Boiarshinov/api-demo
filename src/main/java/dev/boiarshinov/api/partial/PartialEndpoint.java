@@ -1,4 +1,4 @@
-package dev.boiarshinov.standardmethods.endpoints;
+package dev.boiarshinov.api.partial;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.JsonMappingException;

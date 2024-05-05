@@ -1,14 +1,17 @@
-package dev.boiarshinov.api.rerunnable.jobs;
+package dev.boiarshinov.api.rerunnable.jobs.api;
 
+import dev.boiarshinov.api.rerunnable.jobs.Execution;
+import dev.boiarshinov.api.rerunnable.jobs.Job;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RequestMapping("/rerunnable-jobs")
 public interface JobsApi {
 
     @PostMapping("/job")
-    void createJob(@RequestBody RerunnableJobsEndpoint.JobRequest jobRequest);
+    Job createJob(@RequestBody JobRequest jobRequest);
 
     @GetMapping("/job/{jobId}")
     Job getJob(@PathVariable String jobId);
@@ -17,7 +20,7 @@ public interface JobsApi {
     void deleteJob(@PathVariable String jobId);
 
     @PostMapping("/job/{jobId}/run")
-    Object runJob(@PathVariable String jobId);
+    JobOperationResponse runJob(@PathVariable String jobId);
 
 
     //todo filters
@@ -27,4 +30,7 @@ public interface JobsApi {
     @GetMapping("/job/{jobId}/executions/{executionId}")
     Execution getExecution(@PathVariable String jobId, @PathVariable String executionId);
 
+    record JobRequest(
+            Map<String, String> properties
+    ) {}
 }

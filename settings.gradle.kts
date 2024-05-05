@@ -1,1 +1,1 @@
-rootProject.name = "standard-methods"
+rootProject.name = "api-demo"
